@@ -1,4 +1,11 @@
 import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -11,6 +18,17 @@ import Filter from "./Pages/Filter";
 import Create from "./Pages/Create";
 import Update from "./Pages/Update";
 import Home from "./Pages/Home";
+
+const vrule = {
+  border: '1px solid white',
+  height: '30px',
+  marginLeft: 15,
+  marginRight: 5
+};
+const text = {
+  color: 'white',
+  fontSize: 20
+};
 
 /*
 / - home Home.jsx
@@ -40,13 +58,19 @@ import Home from "./Pages/Home";
 function App() {
   return (
     <div className="App">
-      {/* 
-        Can use React-Bootstrap-4 to create header component with search bar
-      */}
       <header>
-        <p>
-          Open?
-        </p>
+        <Navbar fixed="top" bg="primary" variant="dark">
+          <Navbar.Brand href="#home">Open?</Navbar.Brand>
+          <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-light">Search</Button>
+          </Form>
+          <div style={vrule}></div>
+          <Nav className="mr-auto">
+            <Nav.Link href="#home">Upload Your Business</Nav.Link>
+          </Nav>
+          <text style={text}>"Is It Open?"</text>
+        </Navbar>
       </header>
       <Router>
         <Switch>

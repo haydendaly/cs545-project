@@ -1,16 +1,16 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 
 import Business from "./Pages/Business";
@@ -19,23 +19,26 @@ import Create from "./Pages/Create";
 import Update from "./Pages/Update";
 import Home from "./Pages/Home";
 
-const vrule = {
-  border: '1px solid white',
-  height: '30px',
-  marginLeft: 15,
-  marginRight: 5
-};
-const text = {
-  color: 'white',
-  fontSize: 20
-};
-
 /*
 / - home Home.jsx
 /create - create business screen Create.jsx
 /update - update business screen Update.jsx
 /business/:id - get business by id Business.jsx
 */
+
+const tempBusiness = {
+  name: "H&S Giovanni's Restaurant & Pizza",
+  stars: 4,
+  miles: 0.2,
+  indoor: true,
+  outdoor: true,
+  delivery: false,
+  temperature: false,
+  capacity: 28,
+  description:
+    "Easygoing chain pizzeria supplying custom pies, plus pastas, sandwiches and side.",
+  img: "html",
+};
 
 /*
   JSON Data / Functionality - Hayden
@@ -57,7 +60,7 @@ const text = {
 
 function App() {
   return (
-    <div className="App">
+    <div style={{ height: "100%", width: "100%"}}>
       <header>
         <Navbar fixed="top" bg="primary" variant="dark">
           <Navbar.Brand href="#home">Open?</Navbar.Brand>
@@ -75,7 +78,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/business/:id">
-            <Business />
+            <Business business={tempBusiness} />
           </Route>
           <Route path="/create">
             <Create />
@@ -97,5 +100,16 @@ function App() {
     </div>
   );
 }
+
+const vrule = {
+  border: "1px solid white",
+  height: "30px",
+  marginLeft: 15,
+  marginRight: 5,
+};
+const text = {
+  color: "white",
+  fontSize: 20,
+};
 
 export default App;

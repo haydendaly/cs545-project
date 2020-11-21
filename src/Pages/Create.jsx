@@ -1,118 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Component = () => {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-      name: '',
-      location: '',
-      indoor: false,
-      outdoor: false,
-      delivery: false,
-      temp: false,
-      capacity: 0,
-      description: '',
-      file:''
-    };
+    const [name, setName] = useState('');
+    const [location, setLocation] = useState('');
+    const [indoor, setIndoor] = useState(false);
+    const [outdoor, setOutdoor] = useState(false);
+    const [delivery, setDelivery] = useState(false);
+    const [temp, setTemp] = useState(false);
+    const [capacity, setCapacity] = useState(0);
+    const [description, setDescription] = useState('');
+    const [file, setFile] = useState('');
 
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleLocationChange = this.handleLocationChange.bind(this);
-    this.handleIndoorChange = this.handleIndoorChange.bind(this);
-    this.handleOutdoorChange = this.handleOutdoorChange.bind(this);
-    this.handleDeliveryChange = this.handleDeliveryChange.bind(this);
-    this.handleTempChange = this.handleTempChange.bind(this);
-    this.handleCapacityChange = this.handleCapacityChange.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.handleFileChange = this.handleFileChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  };
-
-  handleNameChange(event) {
-    this.setState({name: event.target.value});
-  }
-  handleLocationChange(event) {
-    this.setState({location: event.target.value});
-  }
-  handleIndoorChange(event) {
-    this.setState({indoor: event.target.value});
-  }
-  handleOutdoorChange(event) {
-    this.setState({outdoor: event.target.value});
-  }
-  handleDeliveryChange(event) {
-    this.setState({delivery: event.target.value});
-  }
-  handleTempChange(event) {
-    this.setState({temp: event.target.value});
-  }
-  handleCapacityChange(event) {
-    this.setState({capacity: event.target.value});
-  }
-  handleDescriptionChange(event) {
-    this.setState({description: event.target.value});
-  }
-  handleFileChange(event) {
-    this.setState({file: event.target.value});
+  const handleSubmit = () => {
+    alert(name + " " + indoor + " " + description);
   }
 
-  handleSubmit(event) {
-    //To test submit and fields
-    alert(this.state.name + " " + this.state.indoor + " " + this.state.description);
-    event.preventDefault();
-  }
-
-  render() {
-    //const { name, location, indoor, outdoor, delivery, temp, capacity, description, file } = this.state;
     return (
-      /*
-      <div>
-      <p>Create!</p>
-      </div>
-      */
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div>
         <label>
           Business Name:
-          <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+          <input type="text" value={name} onChange={e => setName(e.target.value)} />
         </label>
         </div>
         <label>
           Location:
-          <input type="text" value={this.state.location} onChange={this.handleLocationChange} />
+          <input type="text" value={location} onChange={e => setLocation(e.target.value)} />
         </label>
         <label>
           Indoor Dining:
-          <input type="checkbox" value={this.state.indoor} onChange={this.handleIndoorChange} />
+          <input type="checkbox" value={indoor} onChange={e => setIndoor(e.target.value)} />
         </label>
         <label>
           Outdoor Dining:
-          <input type="checkbox" value={this.state.outdoor} onChange={this.handleOutdoorChange} />
+          <input type="checkbox" value={outdoor} onChange={e => setOutdoor(e.target.value)} />
         </label>
         <label>
           Delivery:
-          <input type="checkbox" value={this.state.delivery} onChange={this.handleDeliveryChange} />
+          <input type="checkbox" value={delivery} onChange={e => setDelivery(e.target.value)} />
         </label>
         <label>
           Temperature Checks:
-          <input type="checkbox" value={this.state.temp} onChange={this.handleTempChange} />
+          <input type="checkbox" value={temp} onChange={e => setTemp(e.target.value)} />
         </label>
         <label>
           Capacity:
-          <input type="number" value={this.state.capacity} onChange={this.handleCCapacityhange} />
+          <input type="number" value={capacity} onChange={e => setCapacity(e.target.value)} />
         </label>
         <label>
           Description:
-          <textarea value={this.state.description} onChange={this.handleDescriptionChange} />
+          <textarea value={description} onChange={e => setDescription(e.target.value)} />
         </label>
         <label>
           Photo:
-          <input type="file" value={this.state.file} onChange={this.handleFileChange} />
+          <input type="file" value={file} onChange={e => setFile(e.target.value)} />
         </label>
         <input type="submit" value="Submit" />
       </form>
     );
-  }
 }
 
 export default Component;

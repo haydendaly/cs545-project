@@ -63,14 +63,14 @@ function App() {
     <div style={{ height: "100%", width: "100%"}}>
       <header>
         <Navbar fixed="top" bg="primary" variant="dark">
-          <Navbar.Brand href="#home">Open?</Navbar.Brand>
+          <Navbar.Brand href="/">Open?</Navbar.Brand>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-light">Search</Button>
           </Form>
           <div style={vrule}></div>
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Upload Your Business</Nav.Link>
+            <Nav.Link href="/create">Upload Your Business</Nav.Link>
           </Nav>
           <text style={text}>"Is It Open?"</text>
         </Navbar>

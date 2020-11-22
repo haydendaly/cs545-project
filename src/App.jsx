@@ -14,7 +14,6 @@ import {
 } from "react-router-dom";
 
 import Business from "./Pages/Business";
-import Filter from "./Pages/Filter";
 import Create from "./Pages/Create";
 import Update from "./Pages/Update";
 import Home from "./Pages/Home";
@@ -42,7 +41,8 @@ const tempBusiness = {
 
 /*
   JSON Data / Functionality - Hayden
-  - Pull JSON dat from Yelp and make hook for creating/updating/searching businesses
+  - Pull JSON data from Yelp and make hook for creating/updating/searching businesses
+  - Integrate components
   Header Component - Eric
    - npm install react-bootstrap-4
    - In this component where comment is
@@ -55,7 +55,7 @@ const tempBusiness = {
   - In ./Pages/Business
   Filters - Miriam
   - Create static filters component
-  - In ./Pages/Filter
+  - In ./Pages/Filter (will pop up on localhost:3000/ on the left side)
 */
 
 function App() {
@@ -85,9 +85,6 @@ function App() {
           </Route>
           <Route path="/update">
             <Update />
-          </Route>
-          <Route path="/filter">
-            <Filter />
           </Route>
           <Route exact path="/">
             <Home />

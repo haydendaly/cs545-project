@@ -1,154 +1,162 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
-const Component = () => {
-    const [name, setName] = useState('');
-    const [location, setLocation] = useState('');
-    const [indoor, setIndoor] = useState(false);
-    const [outdoor, setOutdoor] = useState(false);
-    const [delivery, setDelivery] = useState(false);
-    const [temp, setTemp] = useState(false);
-    const [capacity, setCapacity] = useState(0);
-    const [description, setDescription] = useState('');
-    const [file, setFile] = useState('');
+import { DataContext } from "../functions/provider";
+
+const Create = () => {
+  const { business, setBusiness } = useContext(DataContext);
+
+  const [newBusiness, setNewBusiness] = useState(business);
 
   const handleSubmit = () => {
-    alert(name + " " + indoor + " " + description);
-  }
+    let old = business;
 
-    return (
-      <div style={overall}>
-      <form onSubmit={handleSubmit}>
-      <div style={mainForm}>
+    setBusiness({ ...business, ...newBusiness });
+    alert(`Your business has been ${old.name === "" ? "Created" : "Updated"}`);
+  };
+
+  return (
+    <div style={container}>
+      <form onSubmit={handleSubmit} style={mainForm}>
         <div>
-          <label style={formTitle}>Upload Your Business</label>
+          <label style={formTitle}>{`${
+            business.name === "" ? "Create" : "Update"
+          } Your Business`}</label>
         </div>
-        <div>
-        <label>
-          Business Name:
-          <input type="text" value={name} onChange={e => setName(e.target.value)} style={busName}/>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Business Name:</p>
+          <input
+            type="text"
+            style={{ height: 25 }}
+            value={newBusiness.name}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, name: e.target.value })
+            }
+          />
         </label>
-        </div>
-        <div>
-        <label>
-          Location:
-          <input type="text" value={location} onChange={e => setLocation(e.target.value)} style={locationCenter}/>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Open:</p>
+          <input
+            type="checkbox"
+            style={{ height: 25 }}
+            checked={newBusiness.open}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, open: e.target.value })
+            }
+          />
         </label>
-        </div>
-        <div>
-        <label>
-          Indoor Dining:
-          <input type="checkbox" value={indoor} onChange={e => setIndoor(e.target.value)} style={checkOne}/>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Indoor Dining:</p>
+          <input
+            type="checkbox"
+            style={{ height: 25 }}
+            checked={newBusiness.indoor}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, indoor: e.target.value })
+            }
+          />
         </label>
-        </div>
-        <div>
-        <label>
-          Outdoor Dining:
-          <input type="checkbox" value={outdoor} onChange={e => setOutdoor(e.target.value)} style={checkTwo}/>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Outdoor Dining:</p>
+          <input
+            type="checkbox"
+            style={{ height: 25 }}
+            checked={newBusiness.outdoor}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, outdoor: e.target.value })
+            }
+          />
         </label>
-        </div>
-        <div>
-        <label>
-          Delivery:
-          <input type="checkbox" value={delivery} onChange={e => setDelivery(e.target.value)} style={checkThree}/>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Delivery:</p>
+          <input
+            type="checkbox"
+            style={{ height: 25 }}
+            checked={newBusiness.delivery}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, delivery: e.target.value })
+            }
+          />
         </label>
-        </div>
-        <div>
-        <label>
-          Temperature Checks:
-          <input type="checkbox" value={temp} onChange={e => setTemp(e.target.value)} style={checkFour}/>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Capacity:</p>
+          <input
+            type="text"
+            style={{ height: 25 }}
+            value={newBusiness.capacity}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, capacity: e.target.value })
+            }
+          />
         </label>
-        </div>
-        <div>
-        <label>
-          Capacity:
-          <input type="number" value={capacity} onChange={e => setCapacity(e.target.value)} style={capCenter}/>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Image URL:</p>
+          <input
+            type="text"
+            style={{ height: 25 }}
+            value={newBusiness.image_url}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, image_url: e.target.value })
+            }
+          />
         </label>
-        </div>
-        <div>
-        <label>
-          Description:
-          <textarea value={description} onChange={e => setDescription(e.target.value)} style={descriptionCenter}/>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Website URL:</p>
+          <input
+            type="text"
+            style={{ height: 25 }}
+            value={newBusiness.url}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, url: e.target.value })
+            }
+          />
         </label>
+        <div onClick={handleSubmit} style={submitDown}>
+          Submit
         </div>
-        <div>
-        <label>
-          Photo:
-          <input type="file" value={file} onChange={e => setFile(e.target.value)} style={photoCenter}/>
-        </label>
-        </div>
-        <input type="submit" value="Submit" style={submitDown}/>
-      </div>
       </form>
-      </div>
-    );
-}
-const overall = {
-  backgroundColor: "#EEEEEE",
-  paddingBottom: "13em",
-  paddingTop: "0.01em",
-}
+    </div>
+  );
+};
+const container = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+  backgroundColor: "#eee",
+};
 
 const formTitle = {
-  marginLeft: "5.6em",
-  marginBottom: "3em",
-  fontSize: "20px",
+  width: "100%",
+  textAlign: "center",
+  marginBottom: 10,
+  fontSize: 20,
   fontWeight: "bold",
   color: "#56A0FD",
-}
+};
 
 const mainForm = {
-  marginLeft: "38em",
-  marginTop: "10em",
-  marginRight: "31em",
+  width: 600,
+  marginTop: 120,
   backgroundColor: "white",
-  padding: "5em",
-  paddingTop: "4em",
-  paddingBottom: "4em",
-  borderRadius: "1em",
-};
-
-const busName = {
-  marginLeft: "3em",
-};
-const locationCenter = {
-  marginLeft: "6.1em",
-};
-
-const checkOne = {
-  marginLeft: "9em",
-};
-
-const checkTwo = {
-  marginLeft: "8.2em",
-};
-
-const checkThree = {
-  marginLeft: "11.4em",
-};
-const checkFour = {
-  marginLeft: "5.7em",
-};
-
-const capCenter = {
-  marginLeft: "6em",
-};
-
-const descriptionCenter = {
-  marginLeft: "4.8em",
-  marginTop: "1em",
-};
-
-const photoCenter = {
-  marginLeft: "10.2em",
+  borderRadius: 30,
+  border: "solid",
+  borderWidth: 0.5,
+  borderColor: "#444",
+  padding: 30,
 };
 
 const submitDown = {
-  marginTop: "2.5em",
-  marginLeft: "10.5em",
+  marginTop: 10,
   backgroundColor: "#56A0FD",
-  borderColor: "white",
+  border: "none",
   color: "white",
-  borderRadius: "2em",
-}
+  height: 30,
+  width: 80,
+  borderRadius: 10,
+  marginLeft: 200,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
 
-export default Component;
+export default Create;

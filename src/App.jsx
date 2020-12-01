@@ -34,7 +34,7 @@ function App() {
         <header>
           <Navbar fixed="top" bg="primary" variant="dark">
           <Link to="/"><Navbar.Brand>
-              Open?
+              Is It Open
             </Navbar.Brand></Link>
             <Form inline>
               <FormControl
@@ -53,7 +53,7 @@ function App() {
                 {business.name !== "" ? "Update" : "Create"} Your Business
               </Nav.Link>
             </Nav>
-            <text style={text}>"Is It Open?"</text>
+            <text style={text}>Hoboken, NJ</text>
           </Navbar>
         </header>
         <DataContext.Provider value={dataProvider}>

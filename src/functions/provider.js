@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import yelp from "../functions/yelp";
+import hardcoded from "./hardcode";
 
 const useData = () => {
     const [business, setBusiness] = useState({
@@ -27,25 +28,26 @@ const useData = () => {
 
     useEffect(() => {
         let newData = [];
-        yelp("", temp => {
-            newData = newData.concat(temp);
-            newData = newData.map(o => ({
-                ...o,
-                open: !o.is_closed,
-                indoor: Math.random() > .5,
-                outdoor: Math.random() > .5,
-                delivery: Math.random() > .5,
-                miles: Math.round(10*o.distance/1609)/10,
-                capacity: Math.round(Math.random()*20) + 10
-            }))
-            setData(newData);
-            setFilteredData(newData);
-        });
+        const temp = hardcoded;
+        // yelp("", temp => {
+        newData = newData.concat(temp);
+        newData = newData.map(o => ({
+            ...o,
+            open: !o.is_closed,
+            indoor: Math.random() > .5,
+            outdoor: Math.random() > .5,
+            delivery: Math.random() > .5,
+            miles: Math.round(10*o.distance/1609)/10,
+            capacity: Math.round(Math.random()*20) + 10
+        }))
+        setData(newData);
+        setFilteredData(newData);
+        // });
+
     }, []);
 
     useEffect(() => {
         let newData = [];
-        console.log(business)
         if (business.name !== "") {
             newData.push(business);
         }
@@ -65,7 +67,7 @@ const useData = () => {
             if (filters.delivery) {
                 newData = newData.filter(o => o.delivery)
             }
-            // newData = newData.filter(o => o.miles <= filters.distance)
+            newData = newData.filter(o => o.miles <= filters.distance)
         }
         setFilteredData(newData);
     }, [filters, business, data]);

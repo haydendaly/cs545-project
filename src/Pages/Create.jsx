@@ -39,8 +39,8 @@ const Create = () => {
             type="checkbox"
             style={{ height: 25 }}
             checked={newBusiness.open}
-            onChange={(e) =>
-              setNewBusiness({ ...newBusiness, open: e.target.value })
+            onChange={() =>
+              setNewBusiness({ ...newBusiness, open: !newBusiness.open })
             }
           />
         </label>
@@ -50,8 +50,8 @@ const Create = () => {
             type="checkbox"
             style={{ height: 25 }}
             checked={newBusiness.indoor}
-            onChange={(e) =>
-              setNewBusiness({ ...newBusiness, indoor: e.target.value })
+            onChange={() =>
+              setNewBusiness({ ...newBusiness, indoor: !newBusiness.indoor })
             }
           />
         </label>
@@ -61,8 +61,8 @@ const Create = () => {
             type="checkbox"
             style={{ height: 25 }}
             checked={newBusiness.outdoor}
-            onChange={(e) =>
-              setNewBusiness({ ...newBusiness, outdoor: e.target.value })
+            onChange={() =>
+              setNewBusiness({ ...newBusiness, outdoor: !newBusiness.outdoor })
             }
           />
         </label>
@@ -72,8 +72,8 @@ const Create = () => {
             type="checkbox"
             style={{ height: 25 }}
             checked={newBusiness.delivery}
-            onChange={(e) =>
-              setNewBusiness({ ...newBusiness, delivery: e.target.value })
+            onChange={() =>
+              setNewBusiness({ ...newBusiness, delivery: !newBusiness.delivery })
             }
           />
         </label>

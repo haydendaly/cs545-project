@@ -55,7 +55,7 @@ const Business = (props) => {
         </div>
         <div style={{ display: "flex", flexDirection: "row", whiteSpace: "break-spaces" }}>
             <p style={{ marginLeft: 0, fontSize: 20, marginTop: 4 }}>{business.display_phone}</p>
-            <p style={{ marginLeft: 20, fontSize: 20, marginTop: 4 }}>{business.location.display_address.join(", ")}</p>
+            <p style={{ marginLeft: 20, fontSize: 20, marginTop: 4 }}>{typeof business.location.display_address === "string" ? business.location.display_address : business.location.display_address.join(", ")}</p>
         </div>
         <p style={{ }}>{business.description}</p>
       </div>

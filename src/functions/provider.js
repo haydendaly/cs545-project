@@ -13,7 +13,12 @@ const useData = () => {
         miles: 0,
         url: "",
         image_url: "",
-        capacity: 0
+        capacity: 0,
+        price: "",
+        location: {
+            display_address: ""
+        },
+        display_phone: ""
     });
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);

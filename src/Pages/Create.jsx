@@ -110,6 +110,39 @@ const Create = () => {
             }
           />
         </label>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Price ($-$$$):</p>
+          <input
+            type="text"
+            style={{ height: 25 }}
+            value={newBusiness.price}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, price: e.target.value })
+            }
+          />
+        </label>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Address:</p>
+          <input
+            type="text"
+            style={{ height: 25 }}
+            value={newBusiness.location.display_address}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, location: { display_address: e.target.value }})
+            }
+          />
+        </label>
+        <label style={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <p style={{ width: "33%" }}>Phone Number:</p>
+          <input
+            type="text"
+            style={{ height: 25 }}
+            value={newBusiness.display_phone}
+            onChange={(e) =>
+              setNewBusiness({ ...newBusiness, display_phone: e.target.value })
+            }
+          />
+        </label>
         <div onClick={handleSubmit} style={submitDown}>
           Submit
         </div>

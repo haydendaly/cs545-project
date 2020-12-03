@@ -23,7 +23,9 @@ const useData = () => {
         outdoor: false,
         delivery: false,
         distance: 10,
-        search: "", 
+        search: "",
+        price: "",
+        rating: 0
     });
 
     useEffect(() => {
@@ -66,6 +68,12 @@ const useData = () => {
             }
             if (filters.delivery) {
                 newData = newData.filter(o => o.delivery)
+            }
+            if (filters.price !== "") {
+                newData = newData.filter(o => o.price === filters.price)
+            }
+            if (filters.price !== 0) {
+                newData = newData.filter(o => o.rating >= filters.rating)
             }
             newData = newData.filter(o => o.miles <= filters.distance)
         }

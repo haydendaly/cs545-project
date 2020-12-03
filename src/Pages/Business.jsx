@@ -39,8 +39,9 @@ const Business = (props) => {
         <div style={{ display: "flex", flexDirection: "row", whiteSpace: "break-spaces" }}>
             <ReactStars value={business.rating} count={5} activeColor="#ffd700" size={24} />
             <p style={{ marginLeft: 10, fontSize: 20, marginTop: 4 }}>{business.rating} Stars</p>
-            <p style={{ marginLeft: 20, fontSize: 20, marginTop: 4 }}>{business.miles} Miles Away</p>
+            <p style={{ marginLeft: 20, fontSize: 20, marginTop: 4 }}>{business.miles} Miles</p>
             <p style={{ marginLeft: 20, fontSize: 20, marginTop: 4 }}>{business.capacity} Person Capacity</p>
+            <p style={{ marginLeft: 20, fontSize: 20, marginTop: 4 }}>{business.price}</p>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
             <Icon icon={!business.open ? faTimes : faCheck} size="2x" color={!business.open ? "red" : "green"} />
@@ -51,6 +52,10 @@ const Business = (props) => {
             <p style={{ marginLeft: 7, paddingRight: 15, fontSize: 20, marginTop: 2 }}>Outdoor Dining</p>
             <Icon icon={!business.delivery ? faTimes : faCheck} size="2x" color={!business.delivery ? "red" : "green"} />
             <p style={{ marginLeft: 7, paddingRight: 15, fontSize: 20, marginTop: 2 }}>Delivery</p>
+        </div>
+        <div style={{ display: "flex", flexDirection: "row", whiteSpace: "break-spaces" }}>
+            <p style={{ marginLeft: 0, fontSize: 20, marginTop: 4 }}>{business.display_phone}</p>
+            <p style={{ marginLeft: 20, fontSize: 20, marginTop: 4 }}>{business.location.display_address.join(", ")}</p>
         </div>
         <p style={{ }}>{business.description}</p>
       </div>

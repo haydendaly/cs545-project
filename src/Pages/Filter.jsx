@@ -13,7 +13,8 @@ const Component = () => {
         marginLeft: 30,
         borderRadius: 20,
         padding: 20,
-        position: "fixed"
+        position: "fixed",
+        fontSize: 14,
       }}
     >
       <h2>Filters</h2>
@@ -21,7 +22,7 @@ const Component = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <input
           type="checkbox"
-          style={{ height: 20, width: 20, borderRadius: 5 }}
+          style={{ height: 18, width: 20, borderRadius: 5 }}
           checked={filters.open}
           onChange={() => setFilters({...filters, open: !filters.open })}
         />
@@ -30,7 +31,7 @@ const Component = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <input
           type="checkbox"
-          style={{ height: 20, width: 20, borderRadius: 5 }}
+          style={{ height: 18, width: 20, borderRadius: 5 }}
           checked={filters.indoor}
           onChange={() => setFilters({...filters, indoor: !filters.indoor })}
         />
@@ -39,7 +40,7 @@ const Component = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <input
           type="checkbox"
-          style={{ height: 20, width: 20, borderRadius: 5 }}
+          style={{ height: 18, width: 20, borderRadius: 5 }}
           checked={filters.outdoor}
           onChange={() => setFilters({...filters, outdoor: !filters.outdoor })}
         />
@@ -48,7 +49,7 @@ const Component = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <input
           type="checkbox"
-          style={{ height: 20, width: 20, borderRadius: 5 }}
+          style={{ height: 18, width: 20, borderRadius: 5 }}
           checked={filters.delivery}
           onChange={() => setFilters({...filters, delivery: !filters.delivery })}
         />
@@ -58,7 +59,7 @@ const Component = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <input
           type="checkbox"
-          style={{ height: 20, width: 20, borderRadius: 5 }}
+          style={{ height: 18, width: 20, borderRadius: 5 }}
           checked={filters.distance === 1}
           onChange={() => setFilters({...filters, distance: 1 })}
         />
@@ -67,7 +68,7 @@ const Component = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <input
           type="checkbox"
-          style={{ height: 20, width: 20, borderRadius: 5 }}
+          style={{ height: 18, width: 20, borderRadius: 5 }}
           checked={filters.distance === 2}
           onChange={() => setFilters({...filters, distance: 2 })}
         />
@@ -76,7 +77,7 @@ const Component = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <input
           type="checkbox"
-          style={{ height: 20, width: 20, borderRadius: 5 }}
+          style={{ height: 18, width: 20, borderRadius: 5 }}
           checked={filters.distance === 5}
           onChange={() => setFilters({...filters, distance: 5 })}
         />
@@ -85,11 +86,85 @@ const Component = () => {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <input
           type="checkbox"
-          style={{ height: 20, width: 20, borderRadius: 5 }}
+          style={{ height: 18, width: 20, borderRadius: 5 }}
           checked={filters.distance === 10}
           onChange={() => setFilters({...filters, distance: 10 })}
         />
         <p style={{marginLeft: 10 }}>Within 10 Miles</p>
+      </div>
+      <p style={{ color: "#444", fontSize: 12 }}>Filter by price</p>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <input
+          type="checkbox"
+          style={{ height: 18, width: 20, borderRadius: 5 }}
+          checked={filters.price === ""}
+          onChange={() => setFilters({...filters, price: "" })}
+        />
+        <p style={{marginLeft: 10 }}>Any</p>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <input
+          type="checkbox"
+          style={{ height: 18, width: 20, borderRadius: 5 }}
+          checked={filters.price === "$"}
+          onChange={() => setFilters({...filters, price: "$" })}
+        />
+        <p style={{marginLeft: 10 }}>$</p>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <input
+          type="checkbox"
+          style={{ height: 18, width: 20, borderRadius: 5 }}
+          checked={filters.price === "$$"}
+          onChange={() => setFilters({...filters, price: "$$" })}
+        />
+        <p style={{marginLeft: 10 }}>$$</p>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <input
+          type="checkbox"
+          style={{ height: 18, width: 20, borderRadius: 5 }}
+          checked={filters.price === "$$$"}
+          onChange={() => setFilters({...filters, price: "$$$" })}
+        />
+        <p style={{marginLeft: 10 }}>$$$</p>
+      </div>
+      <p style={{ color: "#444", fontSize: 12 }}>Filter by rating</p>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <input
+          type="checkbox"
+          style={{ height: 18, width: 20, borderRadius: 5 }}
+          checked={filters.rating === 0}
+          onChange={() => setFilters({...filters, rating: 0 })}
+        />
+        <p style={{marginLeft: 10 }}>Any</p>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <input
+          type="checkbox"
+          style={{ height: 18, width: 20, borderRadius: 5 }}
+          checked={filters.rating === 2}
+          onChange={() => setFilters({...filters, rating: 2 })}
+        />
+        <p style={{marginLeft: 10 }}>{"> 2 Stars"}</p>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <input
+          type="checkbox"
+          style={{ height: 18, width: 20, borderRadius: 5 }}
+          checked={filters.rating === 3}
+          onChange={() => setFilters({...filters, rating: 3 })}
+        />
+        <p style={{marginLeft: 10 }}>{"> 3 Stars"}</p>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <input
+          type="checkbox"
+          style={{ height: 18, width: 20, borderRadius: 5 }}
+          checked={filters.rating === 4}
+          onChange={() => setFilters({...filters, rating: 4 })}
+        />
+        <p style={{marginLeft: 10 }}>{"> 4 Stars"}</p>
       </div>
     </div>
   );
